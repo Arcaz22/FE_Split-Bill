@@ -1,24 +1,13 @@
 <template>
   <div class="sticky top-0 z-40 bg-gray-100 shadow-md">
     <div class="w-full h-20 px-6 flex items-center justify-between bg-gray-100 border-b">
-      <div class="lg:hidden flex items-center p-2">
-        <button @click="toggleSidebar" class="text-gray-700">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </button>
-      </div>
+      <button
+        @click="$emit('toggle-sidebar')"
+        class="lg:hidden p-2 rounded-md focus:outline-none hover:bg-gray-200 transition duration-200"
+      >
+        <font-awesome-icon :icon="['fas', 'bars']" />
+      </button>
+
       <div class="flex-1 flex items-center">
         <Breadcrumb />
       </div>
@@ -47,17 +36,11 @@
             class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border"
           >
             <a
-              href="#"
+              href="/"
               @click="logout"
               class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-b-lg"
             >
-              <svg
-                class="h-5 w-5 text-gray-500 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M10 3a7 7 0 017 7v4a7 7 0 01-7 7H3a7 7 0 017-7V10a7 7 0 017-7z" />
-              </svg>
+              <font-awesome-icon :icon="['fas', 'right-from-bracket']" class="mr-2" />
               <span>Logout</span>
             </a>
           </div>
@@ -70,13 +53,14 @@
 <script setup>
 import { ref } from 'vue'
 import { useDropdown } from '@/composables/useDropdown'
-import { DEFAULT_USER_INITIAL, DEFAULT_USER_AVATAR } from '@/utils/constants'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBars, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import Breadcrumb from '@/components/Ui/BreadcrumbNavigation.vue'
 
 const { dropdownOpen, toggleDropdown } = useDropdown()
-
-const userAvatar = ref(DEFAULT_USER_AVATAR)
-const userInitial = DEFAULT_USER_INITIAL
+library.add(faBars, faRightFromBracket)
+const userAvatar = ref('')
+const userInitial = 'A'
 const username = 'Username'
 
 const logout = () => {

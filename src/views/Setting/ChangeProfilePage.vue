@@ -1,7 +1,6 @@
 <template>
   <div class="w-full p-6">
     <form @submit.prevent="handleUpdateProfile">
-      <!-- Profile Picture -->
       <div class="flex flex-col items-center mb-6">
         <BaseLabel forId="profilePicture" text="Profile Picture" />
         <div class="relative">
@@ -29,7 +28,6 @@
         </div>
       </div>
 
-      <!-- Full Name -->
       <div class="mb-4">
         <BaseLabel forId="name" text="Full Name" />
         <BaseInput
@@ -41,7 +39,6 @@
         />
       </div>
 
-      <!-- Username -->
       <div class="mb-4">
         <BaseLabel forId="username" text="Username" />
         <BaseInput
@@ -53,7 +50,6 @@
         />
       </div>
 
-      <!-- Email -->
       <div class="mb-4">
         <BaseLabel forId="email" text="Email" />
         <BaseInput
@@ -65,7 +61,6 @@
         />
       </div>
 
-      <!-- Phone Number -->
       <div class="mb-4">
         <BaseLabel forId="phoneNumber" text="Phone Number" />
         <BaseInput
@@ -101,7 +96,6 @@ const phoneNumber = ref('')
 const errorMessage = ref('')
 const profileImage = ref(null)
 
-// Handle profile image upload
 const handleImageChange = (event) => {
   const file = event.target.files[0]
   if (file) {
@@ -113,7 +107,6 @@ const handleImageChange = (event) => {
   }
 }
 
-// Handle profile update logic
 const handleUpdateProfile = () => {
   if (!name.value || !username.value || !email.value || !phoneNumber.value) {
     errorMessage.value = 'All fields are required!'

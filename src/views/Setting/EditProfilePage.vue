@@ -1,6 +1,5 @@
 <template>
   <div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
-    <!-- Profile Image -->
     <div class="flex justify-center mb-6">
       <img
         :src="profileImage"
@@ -9,34 +8,28 @@
       />
     </div>
 
-    <!-- Form for Editing Profile -->
     <div>
       <form @submit.prevent="updateProfile">
-        <!-- Name Input -->
         <div class="mb-4">
           <BaseLabel forId="name" text="Full Name" />
           <BaseInput id="name" v-model="name" placeholder="Enter your full name" />
         </div>
 
-        <!-- Username Input -->
         <div class="mb-4">
           <BaseLabel forId="username" text="Username" />
           <BaseInput id="username" v-model="username" placeholder="Enter your username" />
         </div>
 
-        <!-- Email Input -->
         <div class="mb-4">
           <BaseLabel forId="email" text="Email" />
           <BaseInput id="email" v-model="email" placeholder="Enter your email" />
         </div>
 
-        <!-- Phone Number Input -->
         <div class="mb-6">
           <BaseLabel forId="phoneNumber" text="Phone Number" />
           <BaseInput id="phoneNumber" v-model="phoneNumber" placeholder="Enter your phone number" />
         </div>
 
-        <!-- Save Changes Button -->
         <div class="text-center">
           <BaseButton variant="primary" size="medium">Save Changes</BaseButton>
         </div>

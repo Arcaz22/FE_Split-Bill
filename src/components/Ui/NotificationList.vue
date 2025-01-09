@@ -16,32 +16,23 @@
         <p class="text-xs text-gray-500 whitespace-nowrap">{{ notification.time }}</p>
       </div>
     </div>
-    <div class="flex justify-between mt-4">
-      <button
-        @click="prevPage"
-        class="text-sm text-blue-500 hover:underline disabled:text-gray-400"
-        :disabled="currentPage === 1"
-      >
-        Previous
-      </button>
-      <button
-        @click="nextPage"
-        class="text-sm text-blue-500 hover:underline disabled:text-gray-400"
-        :disabled="currentPage === totalPages"
-      >
-        Next
-      </button>
-    </div>
+
+    <PaginationControl
+      :currentPage="currentPage"
+      :totalPages="totalPages"
+      :nextPage="nextPage"
+      :prevPage="prevPage"
+    />
   </div>
 </template>
 
 <script setup>
+import PaginationControl from '@/components/Ui/PaginationControl.vue'
 import { usePagination } from '@/composables/usePagination'
 import { useDummyNotifications } from '@/composables/useDummyData'
 
 const notifications = useDummyNotifications()
 
-// Pagination
 const {
   currentPage,
   paginatedItems: paginatedNotifications,

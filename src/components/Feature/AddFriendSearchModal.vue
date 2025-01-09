@@ -2,7 +2,9 @@
   <div class="fixed inset-0 z-10 bg-gray-500 bg-opacity-50 flex items-center justify-center">
     <div class="bg-white p-6 rounded-lg shadow-lg w-96">
       <div class="flex justify-between items-center mb-4">
-        <BaseButton variant="ghost" @click="closeModal" class="ml-auto">X</BaseButton>
+        <BaseButton variant="ghost" @click="closeModal" class="ml-auto flex justify-end">
+          <font-awesome-icon :icon="['fas', 'x']" />
+        </BaseButton>
       </div>
 
       <input
@@ -23,7 +25,7 @@
             <p class="text-sm text-gray-500">{{ friend.email }}</p>
           </div>
           <BaseButton variant="primary" :fullWidth="false" @click="addSelectedFriend(friend)">
-            Add
+            <font-awesome-icon :icon="['fas', 'plus']" />
           </BaseButton>
         </div>
       </div>
@@ -35,8 +37,12 @@
 
 <script setup>
 import { defineProps, defineEmits } from 'vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faX, faPlus } from '@fortawesome/free-solid-svg-icons'
 import BaseButton from '@/components/Ui/BaseButton.vue'
 import useFriendsSearch from '@/composables/useFriendsSearch'
+
+library.add(faX, faPlus)
 
 const props = defineProps({
   friendsList: {

@@ -12,6 +12,18 @@ export default function useBreadcrumb() {
       items.push({ name: 'Dashboard' })
     } else if (path === '/history') {
       items.push({ name: 'Dashboard', link: '/dashboard' }, { name: 'History' })
+    } else if (path === '/create-bill') {
+      items.push(
+        { name: 'Dashboard', link: '/dashboard' },
+        { name: 'History', link: '/history' },
+        { name: 'Create Bill' },
+      )
+    } else if (path === '/update-bill') {
+      items.push(
+        { name: 'Dashboard', link: '/dashboard' },
+        { name: 'History', link: '/history' },
+        { name: 'Update Profile' },
+      )
     } else if (path === '/friends') {
       items.push({ name: 'Dashboard', link: '/dashboard' }, { name: 'Friends' })
     } else if (path === '/profile') {

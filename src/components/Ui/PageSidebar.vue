@@ -6,20 +6,7 @@
       </div>
       <span class="text-xl font-semibold">Split Bill</span>
       <button @click="$emit('toggle-sidebar')" class="focus:outline-none">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-gray-700"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <font-awesome-icon :icon="['fas', 'x']" />
       </button>
     </div>
 
@@ -35,7 +22,7 @@
         class="w-full flex items-center text-gray-700 h-10 pl-4 bg-gray-200 hover:bg-gray-300 rounded-lg cursor-pointer"
         @click="toggleMenu('main')"
       >
-        <span>Dashboard</span>
+        <span><font-awesome-icon :icon="['fas', 'house']" class="mr-2" />Dashboard</span>
         <svg
           :class="{ 'rotate-180': mainMenuOpen }"
           class="ml-auto h-4 w-4 transition-transform duration-200"
@@ -59,19 +46,24 @@
             to="/dashboard"
             class="flex items-center h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer"
           >
-            <span>Home</span>
+            <span><font-awesome-icon :icon="['fas', 'chart-line']" class="mr-2" />Home</span>
           </router-link>
           <router-link
             to="/history"
             class="flex items-center h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer"
           >
-            <span>History</span>
+            <span>
+              <font-awesome-icon
+                :icon="['fas', 'arrows-split-up-and-left']"
+                class="mr-2"
+              />History</span
+            >
           </router-link>
           <router-link
             to="/friends"
             class="flex items-center h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer"
           >
-            <span>Friends</span>
+            <span><font-awesome-icon :icon="['fas', 'user-group']" class="mr-2" />Friends</span>
           </router-link>
         </div>
       </transition>
@@ -82,7 +74,7 @@
         class="w-full flex items-center text-gray-700 h-10 pl-4 bg-gray-200 hover:bg-gray-300 rounded-lg cursor-pointer"
         @click="toggleMenu('settings')"
       >
-        <span>Settings</span>
+        <span><font-awesome-icon icon="gear" class="mr-2" />Settings</span>
         <svg
           :class="{ 'rotate-180': settingsMenuOpen }"
           class="ml-auto h-4 w-4 transition-transform duration-200"
@@ -106,13 +98,15 @@
             to="/profile"
             class="flex items-center h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer"
           >
-            <span>Profile</span>
+            <span><font-awesome-icon :icon="['fas', 'user']" class="mr-2" />Profile</span>
           </router-link>
           <router-link
             to="/change-password"
             class="flex items-center h-10 pl-4 hover:bg-gray-200 rounded-lg cursor-pointer"
           >
-            <span>Change Password</span>
+            <span
+              ><font-awesome-icon :icon="['fas', 'passport']" class="mr-2" />Change Password</span
+            >
           </router-link>
         </div>
       </transition>
@@ -123,6 +117,17 @@
 <script setup>
 import { ref, computed } from 'vue'
 import logo from '@/assets/icons/logo.svg'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import {
+  faHouse,
+  faChartLine,
+  faArrowsSplitUpAndLeft,
+  faUserGroup,
+  faGear,
+  faUser,
+  faPassport,
+} from '@fortawesome/free-solid-svg-icons'
+library.add(faHouse, faChartLine, faArrowsSplitUpAndLeft, faUserGroup, faGear, faUser, faPassport)
 
 const props = defineProps({
   sidebarOpen: {
