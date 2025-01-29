@@ -26,6 +26,12 @@ export default function useBreadcrumb() {
       )
     } else if (path === '/friends') {
       items.push({ name: 'Dashboard', link: '/dashboard' }, { name: 'Friends' })
+    } else if (path === '/add-friend') {
+      items.push(
+        { name: 'Dashboard', link: '/dashboard' },
+        { name: 'Friends', link: '/friends' },
+        { name: 'Add Friend' },
+      )
     } else if (path === '/profile') {
       items.push({ name: 'Dashboard', link: '/dashboard' }, { name: 'Profile' })
     } else if (path === '/edit-profile') {

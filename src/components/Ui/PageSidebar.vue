@@ -126,8 +126,9 @@ import {
   faGear,
   faUser,
   faPassport,
+  faX
 } from '@fortawesome/free-solid-svg-icons'
-library.add(faHouse, faChartLine, faArrowsSplitUpAndLeft, faUserGroup, faGear, faUser, faPassport)
+library.add(faHouse, faChartLine, faArrowsSplitUpAndLeft, faUserGroup, faGear, faUser, faPassport, faX)
 
 const props = defineProps({
   sidebarOpen: {

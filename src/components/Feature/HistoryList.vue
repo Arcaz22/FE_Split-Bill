@@ -79,15 +79,17 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import useHistoryDetails from '@/composables/useHistoryDetails'
 import BaseButton from '@/components/Ui/BaseButton.vue'
 import ConfirmDeleteModal from '@/components/Feature/ConfirmDeleteModal.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCaretDown, faTrash, faPen } from '@fortawesome/free-solid-svg-icons'
+
 library.add(faCaretDown, faTrash, faPen)
 
+// Menggunakan defineProps untuk mendeklarasikan props yang diterima
 const props = defineProps({
   bills: {
     type: Array,
@@ -113,10 +115,11 @@ const closeDeleteModal = () => {
 }
 
 const confirmDelete = () => {
-  props.bills.splice(
-    props.bills.findIndex((bill) => bill.id === selectedBill.value.id),
-    1,
-  )
+  // Menghapus item dari prop bills
+  const index = props.bills.findIndex((bill) => bill.id === selectedBill.value.id)
+  if (index !== -1) {
+    props.bills.splice(index, 1)
+  }
   closeDeleteModal()
 }
 

@@ -8,7 +8,7 @@ import ChangePassword from '@/views/Setting/ChangePasswordPage.vue'
 import HistoryPage from '@/views/Dashboard/HistoryPage.vue'
 import CreateBill from '@/components/Feature/CreateBillForm.vue'
 import UpdateBill from '@/components/Feature/UpdateBillForm.vue'
-import AddFriend from '@/components/Feature/AddFriendSearchModal.vue'
+import AddFriend from '@/components/Feature/AddFriendForm.vue'
 import FriendList from '@/views/Dashboard/FriendsPage.vue'
 import ViewProfile from '@/views/Setting/ViewProfilePage.vue'
 import EditProfile from '@/views/Setting/EditProfilePage.vue'
@@ -116,7 +116,7 @@ const routes = [
     ],
   },
   {
-    path: '/:pathMatch(.*)*', // Rute untuk halaman 404
+    path: '/:pathMatch(.*)*',
     component: NotFound,
   },
 ]

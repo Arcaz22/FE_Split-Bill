@@ -6,37 +6,26 @@ export function useDummyNotifications() {
       id: 1,
       author: 'Alex John',
       authorImage: logo,
-      time: '2 menit yang lalu',
     },
     {
       id: 2,
       author: 'Jane Doe',
-      authorImage: logo,
-      time: '5 jam yang lalu',
+      authorImage: logo
     },
     {
       id: 3,
       author: 'John Smith',
-      authorImage: logo,
-      time: '1 hari yang lalu',
+      authorImage: logo
     },
     {
       id: 4,
       author: 'Alice Brown',
-      authorImage: logo,
-      time: '3 hari yang lalu',
+      authorImage: logo
     },
     {
       id: 5,
       author: 'Mark Wilson',
       authorImage: logo,
-      time: '1 minggu yang lalu',
-    },
-    {
-      id: 6,
-      author: 'Chris Johnson',
-      authorImage: logo,
-      time: '2 minggu yang lalu',
-    },
+    }
   ]
 }
